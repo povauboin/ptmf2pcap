@@ -115,7 +115,8 @@ public abstract class PtmfFrame {
 	 * @return	The body of the PtmfFrame object
 	 */
 	public byte[] getBody() {
-		return ByteUtils.subarray(this.getByteContent(), this.GET_FRAME_HEADER_LENGTH(), this.getByteContent().length - this.GET_FRAME_HEADER_LENGTH());
+		/* XXX Hardcoded offset 384 */
+		return ByteUtils.subarray(this.getByteContent(), this.GET_FRAME_HEADER_LENGTH() + 384, this.getByteContent().length - this.GET_FRAME_HEADER_LENGTH() - 384);
 	};
 	
 	/**
